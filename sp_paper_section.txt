@@ -1,0 +1,44 @@
+================================================================
+PAPER SECTION -- Section 6.z: Selective Prediction on UT-HAR
+================================================================
+
+6.z  Selective Prediction with Confidence Thresholding
+
+6.z.1  Method
+
+Selective prediction (also referred to as prediction with abstention)
+augments a classifier with a rejection mechanism: a sample is accepted
+for prediction only if the maximum softmax probability (MSP) meets or
+exceeds a confidence threshold tau; otherwise the model abstains. We
+evaluate four thresholds tau in {0.70, 0.80, 0.90, 0.95} on the
+UT-HAR test set (n=500) using the trained ERM baseline. We report:
+
+  - Accepted Accuracy: accuracy on the accepted subset
+  - Coverage:          fraction of samples that receive a prediction
+  - Abstention Rate:   fraction of samples that are rejected
+  - Silent Failure Rate (SFR): P(wrong AND confident >= tau)
+
+6.z.2  Results
+
+  Baseline (ERM, no abstention): Accuracy = 98.40%
+
+  tau    Accepted Acc   Coverage   Abst. Rate   SFR
+  0.70   98.7928%       99.40%     0.60%        1.2000%
+  0.80   99.3902%       98.40%     1.60%        0.6000%
+  0.90   99.3865%       97.80%     2.20%        0.6000%
+  0.95   99.5876%       97.00%     3.00%        0.4000%
+
+6.z.3  Discussion
+
+Increasing tau monotonically improves accepted accuracy (from 98.79%
+at tau=0.70 to 99.59% at tau=0.95) and reduces the silent failure
+rate (from 1.20% to 0.40%), at the cost of modest coverage reduction
+(from 99.40% to 97.00%). Even at the strictest threshold (tau=0.95),
+97% of test samples are still accepted, and accepted accuracy remains
+below 100%, confirming that silent failures persist even at high
+confidence. At tau=0.80-0.90, SFR plateaus at 0.60%, indicating a
+residual set of misclassifications that the model assigns high
+confidence regardless of threshold. This motivates the adoption of
+conformal prediction (APS/RAPS) as a principled alternative that
+provides formal coverage guarantees rather than heuristic thresholding.
+================================================================
