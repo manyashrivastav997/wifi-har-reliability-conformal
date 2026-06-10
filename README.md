@@ -29,7 +29,7 @@ This project proposes **WiCaP**, a framework to improve **prediction reliability
 
 ---
 
-### 🔬 What We Did
+### 🔬 What I Did
 
 * Train model on one environment
 * Test on a different environment (distribution shift)
@@ -92,20 +92,6 @@ WiCaP significantly improves reliability of WiFi HAR systems under real-world co
 
 ---
 
-## 📂 Repository Structure
-
-```
-wifi-har-reliability-conformal/
-│── paper.pdf
-│── WiCaP_UT_HAR_Experiment.ipynb
-│── best_uthar.pt
-│── data/
-│── results/
-│── scripts/
-```
-
----
-
 ## ▶️ How to Run
 
 ```bash
@@ -122,6 +108,16 @@ python test.py
 * Healthcare Monitoring
 * Elderly Assistance Systems
 * Wireless Sensing
+
+---
+
+## 📄 Research Paper
+
+👉 Published Version (DOI):
+https://doi.org/10.5281/zenodo.20621329
+
+👉 Direct PDF (Google Drive):
+https://drive.google.com/file/d/1tqv7knt7PcOj797Ylm6rIUAfvVc4f74I/view?usp=sharing
 
 ---
 
